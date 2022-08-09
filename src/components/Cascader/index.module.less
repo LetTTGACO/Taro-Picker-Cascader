@@ -1,0 +1,104 @@
+@import '../../assets/styles/safe_area';
+
+.cascader {
+  font-size: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  &__mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    z-index: 101;
+    width: 100%;
+    max-height: 64%;
+    background-color: #fff;
+    border-radius: 30px 30px 0 0;
+    overflow: hidden;
+  }
+  &__top {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    width: 100%;
+    flex-shrink: 0;
+    height: 108px;
+    border-bottom: 1px solid #f0f0f0;
+    &__btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 32px;
+      font-weight: 600;
+      color: #5082FF;
+      line-height: 48px;
+    }
+
+    &__title {
+      font-size: 32px;
+      font-weight: 600;
+      color: #222222;
+      line-height: 48px;
+      display: inline-block;
+    }
+  }
+  &__title {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1;
+    color: #222;
+  }
+  &__scroll {
+    box-sizing: border-box;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    &--safe-area {
+      .safe-area-bottom();
+    }
+  }
+  &__option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px 0 24px;
+    height: 108px;
+    border-bottom: 1px solid #f0f0f0;
+    &--active {
+      .cascader__option-icon {
+        &--single-tick {
+          background-image: url('../../assets/images/tick.png');
+        }
+      }
+    }
+    &-label {
+      font-size: 30px;
+    }
+    &-icon {
+      width: 52px;
+      height: 52px;
+      background-size: 52px 52px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      transition: background 0.3s;
+    }
+  }
+
+
+}

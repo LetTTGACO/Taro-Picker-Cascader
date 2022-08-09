@@ -1,0 +1,31 @@
+/* 安全区域适配
+ * .safe-area(padding-bottom, 20px, bottom) ====> padding-bottom: calc(20px + constant(safe-area-inset-bottom));
+ *                                                padding-bottom: calc(20px + env(safe-area-inset-bottom));
+ *
+ */
+@empty: 0;
+@default-attr: padding-bottom;
+@default-direction: safe-area-inset-bottom;
+
+.safe-area(@attr, @size: 0, @direction: @default-direction) when(@size = @empty) {
+  @{attr}: constant(@direction);
+  @{attr}: env(@direction);
+}
+
+.safe-area(@attr, @size: 0, @direction: @default-direction) when(@size > @empty) {
+  @{attr}: calc(@size + constant(@direction));
+  @{attr}: calc(@size + env(@direction));
+}
+
+.safe-area-top(@attr: @default-attr, @size: @empty) {
+  .safe-area(@attr, @size, safe-area-inset-top);
+}
+.safe-area-bottom(@attr: @default-attr, @size: @empty) {
+  .safe-area(@attr, @size, safe-area-inset-bottom);
+}
+.safe-area-left(@attr: @default-attr, @size: @empty) {
+  .safe-area(@attr, @size, safe-area-inset-left);
+}
+.safe-area-right(@attr: @default-attr, @size: @empty) {
+  .safe-area(@attr, @size, safe-area-inset-right);
+}

@@ -1,0 +1,21 @@
+.tabs-pane {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: initial;
+  vertical-align: top;
+
+  &--active {
+    // 1个是182px = 114px + 68px
+    // 2个是296px = 114px * 2 + 68px
+    // 这里默认5个
+    height: 638px;
+    //height: auto;
+  }
+
+  &--inactive {
+    height: 0;
+    overflow: hidden;
+  }
+
+}
