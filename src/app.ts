@@ -5,8 +5,7 @@ interface Props {
 }
 
 class App extends Component<Props> {
-
-  render () {
+  render() {
     return this.props.children
   }
 }
