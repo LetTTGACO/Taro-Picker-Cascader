@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import React, { useMemo, useEffect, useCallback, useReducer, CSSProperties } from 'react'
-
+import { noop } from '@tarojs/shared'
 // components
 import { View } from '@tarojs/components'
 import { ViewProps } from '@tarojs/components/types/View'
@@ -33,8 +33,6 @@ function nextFrame(cb: () => void) {
 }
 
 const DEFAULT_DURATION = 300
-
-const noop = (_?: any) => {}
 
 enum ModeEnum {
   ENTER = 'enter',
