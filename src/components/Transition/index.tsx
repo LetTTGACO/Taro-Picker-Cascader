@@ -38,7 +38,7 @@ const noop = (_?: any) => {}
 
 enum ModeEnum {
   ENTER = 'enter',
-  LEAVE = 'leave'
+  LEAVE = 'leave',
 }
 
 interface DurationObject {
@@ -96,14 +96,14 @@ interface State {
 }
 
 const initialState: State = {
-  id: '',                 // 组件 id，用以屏蔽冒泡动画事件
-  mode: ModeEnum.ENTER,   // 模式，进入或退出
-  isInit: false,          // 是否初始化，节省初次渲染性能
-  display: false,         // 控制显示隐藏的关键
-  lastShow: false,        // 记录上一次的显示状态
-  classes: '',            // 最终 attach 到 “DOM” 上的类名
-  currentDuration: 0,     // 动画时间，不同模式下可不同
-  transitionEnded: false  // 动画是否结束
+  id: '', // 组件 id，用以屏蔽冒泡动画事件
+  mode: ModeEnum.ENTER, // 模式，进入或退出
+  isInit: false, // 是否初始化，节省初次渲染性能
+  display: false, // 控制显示隐藏的关键
+  lastShow: false, // 记录上一次的显示状态
+  classes: '', // 最终 attach 到 “DOM” 上的类名
+  currentDuration: 0, // 动画时间，不同模式下可不同
+  transitionEnded: false, // 动画是否结束
 }
 
 const reducer = (state, action) => {
@@ -119,7 +119,7 @@ const init = (state: State) => {
   return { ...state, id: String(Math.random()) }
 }
 
-const Transition: React.FC<Props> = props => {
+const Transition: React.FC<Props> = (props) => {
   const {
     show,
     name = 'fade',
@@ -138,17 +138,20 @@ const Transition: React.FC<Props> = props => {
     onBeforeLeave = noop,
     onLeave = noop,
     onAfterLeave = noop,
-    className = ''
+    className = '',
   } = props
 
   const [state, dispatch] = useReducer(reducer, initialState, init)
-  const updateState = useCallback(payload => dispatch({ type: 'updateState', payload }), [dispatch])
+  const updateState = useCallback(
+    (payload) => dispatch({ type: 'updateState', payload }),
+    [dispatch],
+  )
 
   const getClassNames = (_name: string) => ({
     enter: `${_name}-enter-active ${_name}-enter ${enterActiveClassName} ${enterClassName}`,
     leave: `${_name}-leave-active ${_name}-leave ${leaveActiveClassName} ${leaveClassName}`,
     'enter-to': `${_name}-enter-active ${_name}-enter-to ${enterActiveClassName} ${enterToClassName}`,
-    'leave-to': `${_name}-leave-active ${_name}-leave-to ${leaveActiveClassName} ${leaveToClassName}`
+    'leave-to': `${_name}-leave-active ${_name}-leave-to ${leaveActiveClassName} ${leaveToClassName}`,
   })
 
   // 监测外部显示隐藏
@@ -174,13 +177,13 @@ const Transition: React.FC<Props> = props => {
         isInit: true,
         display: true,
         classes: _classNames.enter,
-        currentDuration
+        currentDuration,
       })
 
       nextFrame(() => {
         updateState({
           classes: classNames['enter-to'],
-          transitionEnded: false
+          transitionEnded: false,
         })
       })
     })
@@ -201,13 +204,13 @@ const Transition: React.FC<Props> = props => {
 
       updateState({
         classes: _classNames.leave,
-        currentDuration
+        currentDuration,
       })
 
       nextFrame(() => {
         updateState({
           classes: _classNames['leave-to'],
-          transitionEnded: false
+          transitionEnded: false,
         })
       })
     })
@@ -218,7 +221,7 @@ const Transition: React.FC<Props> = props => {
     const ret = {
       '-webkit-transition-duration': `${String(state.currentDuration)}ms`,
       'transition-duration': `${String(state.currentDuration)}ms`,
-      ...customStyle
+      ...customStyle,
     }
     !state.display && (ret.display = 'none')
 

@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "test-taro",
+  "projectname": "taro-picker-cascader",
   "appid": "testAppId",
   "setting": {
     "es6": false,

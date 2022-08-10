@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "test-taro",
-  "description": "test-taro",
+  "projectname": "taro-picker-cascader",
+  "description": "基于Taro的弹窗级联React组件",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,
