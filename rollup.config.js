@@ -19,13 +19,13 @@ export default {
   input: resolveFile(pkg.source),
   output: [
     {
-      file: resolveFile(pkg.main),
+      file: resolveFile('build/index.js'),
       format: 'cjs',
       sourcemap: true,
       exports: 'auto',
     },
     {
-      file: resolveFile(pkg.module),
+      file: resolveFile('build/index.esm.js'),
       format: 'es',
       sourcemap: true,
       exports: 'auto',
@@ -37,7 +37,7 @@ export default {
       entries: [{ find: '@', replacement: resolveFile('src') }],
     }),
     postcss({
-      extract: resolveFile(pkg.css),
+      extract: resolveFile('build/index.css'),
       minimize: true,
     }),
     RollupTypescript({
