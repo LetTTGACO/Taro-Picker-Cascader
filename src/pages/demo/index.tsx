@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import Cascader from '../../components/Cascader'
 import { DataSource, Tab } from '../../typing'
+// import Cascader, { DataSource, Tab } from 'taro-picker-cascader'
 
 const options: DataSource[] = [
   {

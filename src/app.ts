@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-
+import { Component, ReactNode } from 'react'
 interface Props {
-  children: React.ReactNode
+  children: ReactNode
 }
+// import 'taro-picker-cascader/index.css'
 
 class App extends Component<Props> {
   render() {
