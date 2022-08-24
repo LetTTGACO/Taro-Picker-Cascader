@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { noop } from '@tarojs/shared'
 import classnames from 'classnames'
 // components
 import { ScrollView, Text, View } from '@tarojs/components'
@@ -10,6 +9,7 @@ import TabPanel from '../TabPanel'
 import styles from './index.module.less'
 import { CascaderOptions, DataSource, Tab } from '../../typing'
 
+const noop = () => {}
 const defaultTitle = '请选择'
 const defaultValue = `${new Date().getTime()}-tempId`
 

@@ -1,14 +1,14 @@
 import Taro from '@tarojs/taro'
 import React, { useMemo, useEffect, useCallback, useReducer, CSSProperties } from 'react'
-import { noop } from '@tarojs/shared'
 // components
 import { View } from '@tarojs/components'
 import { ViewProps } from '@tarojs/components/types/View'
-
 // styles
 import classNames from 'classnames'
 import styles from './index.module.less'
 import './transition.less'
+
+const noop = () => {}
 
 // TODO 后续替换为全局的 sync 类结果缓存
 // 缓存 getSystemInfoSync 结果
