@@ -11,6 +11,16 @@ const options: DataSource[] = [
       {
         label: '北京市1',
         value: 'beijing1',
+        children: [
+          {
+            label: '北京市22',
+            value: 'beijing122',
+          },
+          {
+            label: '北京市2222',
+            value: 'beijing2222',
+          },
+        ],
       },
       {
         label: '北京市2',
