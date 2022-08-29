@@ -91,10 +91,25 @@ const Cascader: React.FC<CascaderOptions> = (props) => {
     onChange(ids, selectTabs)
   }
 
+  // 取消选中
+  const handleCancelSelect = () => {
+    const currentTab = tabList[current].dataSource
+    tabList.splice(current, tabList.length - current, {
+      title: defaultTitle,
+      value: defaultValue,
+      dataSource: currentTab,
+    })
+    handleOnChange(tabList)
+    setTabList(tabList)
+  }
+
   // 点击 option
   const handleOptionClick = (value: string, tab: Tab) => {
     const isRepeatClick = getIsRepeatClick(value)
-    if (isRepeatClick) return
+    if (isRepeatClick) {
+      handleCancelSelect()
+      return
+    }
     const target = getChooseValueItem(value, tab)
     if (!target) return
     const newTabList = handleTabTitleChange(value, tab, target)
