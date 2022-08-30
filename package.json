@@ -15,12 +15,13 @@
   "types": "./index.d.ts",
   "css": "./index.css",
   "scripts": {
+    "prebuild": "rimraf build",
     "build:weapp": "taro build --type weapp",
     "build:h5": "taro build --type h5",
     "dev:weapp": "npm run build:weapp -- --watch",
     "dev:h5": "npm run build:h5 -- --watch",
-    "build:type": "rimraf build && tsc --project ./tsconfig.json --declaration",
-    "build:rollup": "rimraf build && rollup --config ./rollup.config.js",
+    "build:type": "tsc --project ./tsconfig.json --declaration",
+    "build:rollup": "rollup --config ./rollup.config.js",
     "postbuild": "cp LICENSE build/LICENSE && cp README.md build/README.md && cp package.json build/package.json",
     "build": "npm run build:type && npm run build:rollup"
   },
