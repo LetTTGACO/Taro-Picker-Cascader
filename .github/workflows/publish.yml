@@ -1,0 +1,26 @@
+name: CD
+on:
+  release:
+    types: [created]
+jobs:
+  publish:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+          registry-url: https://registry.npmjs.org
+      - run: npm install react@18.0.0
+      - run: npm install react-dom@18.0.0
+      - run: npm install @tarojs/taro@3.5.2
+      - run: npm install @tarojs/components@3.5.2
+      - run: npm run build:type
+      - run: npm run build:rollup
+      - run: cp LICENSE build/LICENSE
+      - run: cp README.md build/README.md
+      - run: jq 'del(.devDependencies) | del(.scripts)' package.json > build/package.json
+      - run: npm publish ./build
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
