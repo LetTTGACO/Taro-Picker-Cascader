@@ -1,7 +1,24 @@
 {
   "name": "taro-picker-cascader",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "基于Taro的弹窗级联React组件",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LetTTGACO/taro-picker-cascader.git"
+  },
+  "tags": [
+    "taro",
+    "react",
+    "picker",
+    "cascader"
+  ],
+  "keywords": [
+    "基于Taro的弹窗级联React组件"
+  ],
+  "bugs": {
+    "url": "https://github.com/LetTTGACO/taro-picker-cascader/issues"
+  },
+  "homepage": "https://github.com/LetTTGACO/taro-picker-cascader#readme",
   "templateInfo": {
     "name": "default",
     "typescript": true,
