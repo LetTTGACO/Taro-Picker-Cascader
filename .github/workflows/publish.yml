@@ -12,7 +12,6 @@ jobs:
         with:
           node-version: 'lts/*'
           registry-url: https://registry.npmjs.org
-      - run: npm ci --ignore-scripts
       - run: npm run build:type
       - run: npm run build:rollup
       - run: cp LICENSE build/LICENSE
