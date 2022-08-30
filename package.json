@@ -1,6 +1,6 @@
 {
   "name": "taro-picker-cascader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "基于Taro的弹窗级联React组件",
   "templateInfo": {
     "name": "default",
