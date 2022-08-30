@@ -58,14 +58,6 @@ const config = {
       },
     },
   },
-  rn: {
-    appName: 'taroDemo',
-    postcss: {
-      cssModules: {
-        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
-      },
-    },
-  },
 }
 
 module.exports = function (merge) {

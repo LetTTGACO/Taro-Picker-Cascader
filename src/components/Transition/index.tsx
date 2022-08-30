@@ -221,6 +221,8 @@ const Transition: React.FC<Props> = (props) => {
       'transition-duration': `${String(state.currentDuration)}ms`,
       ...customStyle,
     }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     !state.display && (ret.display = 'none')
 
     return ret

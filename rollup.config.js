@@ -3,6 +3,7 @@ import postcss from 'rollup-plugin-postcss'
 import RollupTypescript from 'rollup-plugin-typescript2'
 import alias from '@rollup/plugin-alias'
 import base64 from 'postcss-base64'
+import postcssurl from 'postcss-url'
 import pkg from './package.json'
 
 const resolveFile = (source) => path.resolve(__dirname, source)
@@ -41,6 +42,9 @@ export default {
       extract: resolveFile('build/index.css'),
       minimize: true,
       plugins: [
+        postcssurl({
+          url: 'inline',
+        }),
         base64({
           extensions: ['.png', '.jpeg'],
         }),
