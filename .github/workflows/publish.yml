@@ -12,10 +12,7 @@ jobs:
         with:
           node-version: 'lts/*'
           registry-url: https://registry.npmjs.org
-      - run: npm install react@18.0.0
-      - run: npm install react-dom@18.0.0
-      - run: npm install @tarojs/taro@3.5.2
-      - run: npm install @tarojs/components@3.5.2
+      - run: npm install
       - run: npm run build:type
       - run: npm run build:rollup
       - run: cp LICENSE build/LICENSE
